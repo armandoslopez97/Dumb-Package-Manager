@@ -4,7 +4,10 @@ remove() {
 rm /path/to/installed/program/$1
 }
 
-inst() { scp /ip/of/repo:~/directory/of/repo/$1 /path/to/install; }
+inst() { 
+scp /ip/of/repo:~/directory/of/repo/$1 /path/to/install
+chmod a+x /path/to/install/$1
+}
 
 if [[ $1 = "install" ]]; then
 	inst $2
