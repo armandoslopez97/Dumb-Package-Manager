@@ -1,4 +1,19 @@
 #! /bin/bash
 
-sh ./$1.sh $2
+remove() {
+rm /path/to/installed/program/$1
+}
+
+inst() { scp /ip/of/repo:~/directory/of/repo/$1 /path/to/install; }
+
+if [[ $1 = "install" ]]; then
+	inst $2
+
+elif [[ $1 == "remove" ]]; then
+	remove $2
+
+elif [[ $1 == "update" ]]; then
+	remove $2
+	inst $2
+fi
 
